@@ -1,13 +1,12 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
+// import { fechWeather } from './api/fetchWeather';
+import './sass/main.scss';
+import Searchbar from './components/Searchbar';
 
 function App() {
-    const [count, setCount] = useState(0);
-
     return (
         <>
-            <h1>hello</h1>
+            <h1>Clouder</h1>
+            <Searchbar />
         </>
     );
 }
