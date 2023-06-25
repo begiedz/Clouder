@@ -17,8 +17,8 @@ const Searchbar = () => {
             {/* <form action=""> */}
             <input
                 type="search"
-                className="seachbar"
-                placeholder="Search..."
+                className="searchbar"
+                placeholder="Search"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 onKeyDown={search}
