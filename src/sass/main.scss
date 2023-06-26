@@ -14,66 +14,68 @@ html {
 sup {
     font-size: 0.5em;
 }
-
-#root {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    gap: 1em;
-    padding: 1rem;
-    border: 1px solid red;
-    background-color: rgb(165, 165, 165);
-
-    h1 {
-        font-family: Arial, Helvetica, sans-serif;
-    }
-    .searchbar-card {
-        .searchbar {
-            padding: 0.25rem 0.5rem;
-            border-radius: 0.5rem;
-            background-color: rgba($color: #000000, $alpha: 0.2);
-            border: none;
-            color: black;
-        }
-        .searchbar:focus {
-        }
-        .searchbar::placeholder {
-            color: black;
-        }
-    }
-
-    .temperature-card {
+body {
+    background-color: slategray;
+    #root {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 0.5rem;
 
-        // overflow: scroll;
-
-        height: 300px;
-        // width: auto;
-        aspect-ratio: 2/4;
-
+        gap: 1em;
         padding: 1rem;
-        border-radius: 1rem;
-        background-color: rgba($color: white, $alpha: 0.2);
+        // border: 1px solid red;
+        // background-color: rgb(165, 165, 165);
 
-        backdrop-filter: blur(2px);
-
-        font-size: 1rem;
-
-        img {
-            height: 100px;
-            width: 100px;
+        h1 {
+            font-family: Arial, Helvetica, sans-serif;
         }
-        .temperature {
-            font-size: 3rem;
+        .searchbar-card {
+            .searchbar {
+                padding: 0.25rem 0.5rem;
+                border-radius: 0.5rem;
+                background-color: rgba($color: #000000, $alpha: 0.2);
+                border: none;
+                color: black;
+            }
+            .searchbar:focus {
+            }
+            .searchbar::placeholder {
+                color: black;
+            }
         }
-        ul {
+
+        .temperature-card {
             display: flex;
+            flex-direction: column;
+            align-items: center;
             gap: 0.5rem;
-            list-style: none;
+
+            // overflow: scroll;
+
+            // height: 300px;
+            // width: auto;
+            // aspect-ratio: 2/4;
+
+            padding: 1rem;
+            border-radius: 1rem;
+            background-color: rgba($color: white, $alpha: 0.2);
+
+            backdrop-filter: blur(2px);
+
+            font-size: 1rem;
+
+            img {
+                height: 100px;
+                width: 100px;
+            }
+            .temperature {
+                font-size: 3rem;
+            }
+            ul {
+                display: flex;
+                gap: 0.5rem;
+                list-style: none;
+            }
         }
     }
 }
