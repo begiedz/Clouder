@@ -14,20 +14,42 @@ html {
 sup {
     font-size: 0.5em;
 }
+
 body {
-    background-color: slategray;
+    background-color: rgba(112, 128, 144, 0.709);
+
     #root {
         display: flex;
         flex-direction: column;
         align-items: center;
 
         gap: 1em;
-        padding: 1rem;
+        // padding: 1rem;
         // border: 1px solid red;
         // background-color: rgb(165, 165, 165);
 
-        h1 {
-            font-family: Arial, Helvetica, sans-serif;
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+
+            width: 100%;
+            height: 50px;
+
+            background-color: #708090;
+
+            padding: 1rem;
+
+            div {
+                height: inherit;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+
+                img {
+                    height: inherit;
+                }
+            }
         }
         .searchbar-card {
             .searchbar {
@@ -58,11 +80,10 @@ body {
             // overflow: hidden;
             h2 {
                 // font-size: 100%;
-                // max-width: 100%;
-                // overflow: hidden;
-                // text-overflow: ellipsis;
-                // overflow: hidden;
-                // white-space: nowrap;
+                max-width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
                 // max-width: 9rem;
             }
 
@@ -75,8 +96,10 @@ body {
             font-size: 1rem;
 
             img {
-                height: 100px;
-                width: 100px;
+                height: 150px;
+                margin: -1rem;
+                width: auto;
+                // scale: 1.2;
             }
             .temperature {
                 font-size: 3rem;

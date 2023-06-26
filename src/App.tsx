@@ -1,5 +1,6 @@
 import { fetchWeather } from './api/fetchWeather';
 import { useState } from 'react';
+import cloudsImg from './assets/img/clouds-cloud-svgrepo-com.svg';
 
 import './sass/main.scss';
 import Searchbar from './components/Searchbar';
@@ -24,7 +25,14 @@ function App() {
     };
     return (
         <>
-            <Searchbar query={query} setQuery={setQuery} search={search} />
+            <nav>
+                <div>
+                    <img src={cloudsImg} alt="logo" />
+                    <h1>Clouder</h1>
+                </div>
+                <Searchbar query={query} setQuery={setQuery} search={search} />
+            </nav>
+
             {weather.main ? <MainTemperatureCard weather={weather} /> : null}
         </>
     );
