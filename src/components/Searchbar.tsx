@@ -1,17 +1,8 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import { fetchWeather } from '../api/fetchWeather';
 fetchWeather;
 
-const Searchbar = () => {
-    const [query, setQuery] = useState('');
-
-    const search = async (e: any) => {
-        if (e.key == 'Enter') {
-            const data = await fetchWeather(query);
-
-            console.log(data);
-        }
-    };
+const Searchbar = (props: any) => {
     return (
         <div className="searchbar-card">
             {/* <form action=""> */}
@@ -19,9 +10,9 @@ const Searchbar = () => {
                 type="search"
                 className="searchbar"
                 placeholder="Search"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                onKeyDown={search}
+                value={props.query}
+                onChange={(e) => props.setQuery(e.target.value)}
+                onKeyDown={props.search}
             />
             {/* </form> */}
         </div>
