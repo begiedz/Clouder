@@ -4,7 +4,7 @@ fetchWeather;
 
 const Searchbar = (props: any) => {
     return (
-        <div className="searchbar-card">
+        <div>
             {/* <form action=""> */}
             <input
                 type="search"

@@ -28,9 +28,16 @@ function App() {
             <nav>
                 <div>
                     <img src={cloudsImg} alt="logo" />
-                    <h1>Clouder</h1>
+                    {/* <h1>Clouder</h1> */}
                 </div>
                 <Searchbar query={query} setQuery={setQuery} search={search} />
+                <button>
+                    <span
+                        className="material-symbols-rounded"
+                        style={{ fontSize: `30px`, color: `#000` }}>
+                        menu
+                    </span>
+                </button>
             </nav>
 
             {weather.main ? <MainTemperatureCard weather={weather} /> : null}

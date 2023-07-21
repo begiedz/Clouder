@@ -21,7 +21,7 @@ const MainTemperatureCard = (props: any) => {
     //         setImg('');
     // }
     return (
-        <div className="temperature-card">
+        <div className="main card">
             {/* {img ? <img src={img} alt={weatherStatus + ' image'} /> : null} */}
             {/* <img src={img} alt={weatherStatus + ' image'} /> */}
             <img
