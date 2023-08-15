@@ -9,7 +9,7 @@ const Searchbar = (props: any) => {
             <input
                 type="search"
                 className="searchbar"
-                placeholder="Search"
+                placeholder="Search..."
                 value={props.query}
                 onChange={(e) => props.setQuery(e.target.value)}
                 onKeyDown={props.search}

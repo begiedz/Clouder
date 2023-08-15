@@ -1,6 +1,6 @@
 import React from 'react'
 
-const HourlyTemperature = () => {
+const HourlyTemperature = (props: any) => {
   return (
     <div>HourlyTemperature</div>
   )

@@ -1,25 +1,7 @@
-// import clear from '../assets/img/clear-day.svg';
-// import cloudy from '../assets/img/cloudy.svg';
-
-// import { useState } from 'react';
-
-// import bgImage from 'https://cdn.pixabay.com/photo/2016/01/02/01/51/clouds-1117584_1280.jpg';
 
 const MainTemperatureCard = (props: any) => {
     // const weatherStatus = props.weather.weather[0].main;
     const weatherStatus = props.weather.weather[0].description;
-    // const [img, setImg] = useState('');
-
-    // switch (weatherStatus) {
-    //     case 'Clear':
-    //         setImg(clear);
-    //         break;
-    //     case 'Clouds':
-    //         setImg(cloudy);
-    //         break;
-    //     default:
-    //         setImg('');
-    // }
     return (
         <div className="main card">
             {/* {img ? <img src={img} alt={weatherStatus + ' image'} /> : null} */}
@@ -29,7 +11,7 @@ const MainTemperatureCard = (props: any) => {
                 alt={weatherStatus}
             />
 
-            <h2>{props.weather.name}</h2>
+            <h2>{props.weather.name} <sup>{props.weather.sys.country}</sup></h2>
             {/* Staronizhestebliyevskaya */}
 
             <div className="temperature">

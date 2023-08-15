@@ -28,7 +28,7 @@ function App() {
             <nav>
                 <div>
                     <img src={cloudsImg} alt="logo" />
-                    {/* <h1>Clouder</h1> */}
+                    <h1>Clouder</h1>
                 </div>
                 <Searchbar query={query} setQuery={setQuery} search={search} />
                 <button>
