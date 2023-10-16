@@ -4,8 +4,6 @@ const MainTemperatureCard = (props: any) => {
     const weatherStatus = props.weather.weather[0].description;
     return (
         <div className="main card">
-            {/* {img ? <img src={img} alt={weatherStatus + ' image'} /> : null} */}
-            {/* <img src={img} alt={weatherStatus + ' image'} /> */}
             <img
                 src={`https://openweathermap.org/img/wn/${props.weather.weather[0].icon}@2x.png`}
                 alt={weatherStatus}

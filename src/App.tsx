@@ -8,7 +8,7 @@ import MainTemperatureCard from './components/MainTemperatureCard';
 
 function App() {
     const [query, setQuery] = useState('');
-    const [weather, setWeather] = useState({});
+    const [weather, setWeather]: any = useState({});
 
     const search = async (e: any) => {
         if (e.key == 'Enter') {
@@ -21,6 +21,7 @@ function App() {
 
             setQuery('');
             console.log(data);
+
         }
     };
     return (
@@ -32,11 +33,11 @@ function App() {
                 </div>
                 <Searchbar query={query} setQuery={setQuery} search={search} />
                 <button>
-                    <span
+                    {/* <span
                         className="material-symbols-rounded"
                         style={{ fontSize: `30px`, color: `#000` }}>
                         menu
-                    </span>
+                    </span> */}
                 </button>
             </nav>
 

@@ -52,22 +52,25 @@ body {
       grid-template-columns: 1fr 3fr 1fr;
 
       gap: 0.5rem;
-      padding: 0.5rem;
 
       width: 100%;
+      height: 50px;
       background-color: #fbfbfb;
 
       div {
-        height: inherit;
         display: flex;
         align-items: center;
         gap: 0.5rem;
+        height: inherit;
 
         img {
           height: inherit;
-          height: 50px;
+          margin-right: 0px;
+          margin-left: 0px;
         }
         h1 {
+          // margin-left: 2rem;
+          // font-size: 1rem;
           @media screen and (max-width: 760px) {
             display: none;
           }
@@ -104,9 +107,6 @@ body {
       border: none;
       color: black;
     }
-    .searchbar:focus {
-      // background-color: darkgray;
-    }
     .searchbar::placeholder {
       color: gray;
     }
@@ -114,34 +114,47 @@ body {
     .main {
       //   gap: 0.5rem;
       backdrop-filter: blur(2px);
-      // background-color: #c9c9c9;
+
       @media screen and (min-width: 600px) {
         max-width: 600px;
       }
-
-      h2 {
-        // font-size: 2rem;
-        max-width: 100%;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
-
-      .temperature {
-        font-size: 3.5rem;
-      }
-
-      img {
-        height: 150px;
-        margin: -2rem;
-        width: auto;
-      }
-
-      ul {
-        display: flex;
-        gap: 0.5rem;
-        list-style: none;
-      }
+      animation-name: showCard;
+      animation-duration: 1000ms;
     }
+
+    h2 {
+      // font-size: 2rem;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .temperature {
+      font-size: 3.5rem;
+    }
+
+    img {
+      height: 150px;
+      margin: -2rem;
+      width: auto;
+    }
+
+    ul {
+      display: flex;
+      gap: 0.5rem;
+      list-style: none;
+    }
+  }
+}
+
+@keyframes showCard {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 100%;
   }
 }
