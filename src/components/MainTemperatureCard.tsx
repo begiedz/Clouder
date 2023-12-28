@@ -1,20 +1,20 @@
 
-const MainTemperatureCard = (props: any) => {
-    // const weatherStatus = props.weather.weather[0].main;
-    const weatherStatus = props.weather.weather[0].description;
+const MainTemperatureCard = ({ weather }: any) => {
+    const weatherStatus = weather.weather[0].description;
+
     return (
-        <div className="main card">
+        <main className="main card">
             <img
-                src={`https://openweathermap.org/img/wn/${props.weather.weather[0].icon}@2x.png`}
-                alt={weatherStatus}
+                src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+                alt={`${weatherStatus} icon`}
             />
 
-            <h2>{props.weather.name} <sup>{props.weather.sys.country}</sup></h2>
+            <h2>{weather.name} <sup>{weather.sys.country}</sup></h2>
             {/* Staronizhestebliyevskaya */}
 
             <div className="temperature">
-                {Math.round(props.weather.main.temp)}
-                <sup>°C</sup>
+                {Math.round(weather.main.temp)}
+                <sup>°</sup>
             </div>
 
             <div className="weather-status">
@@ -23,15 +23,15 @@ const MainTemperatureCard = (props: any) => {
 
             <ul>
                 <li>
-                    H: {Math.round(props.weather.main.temp_max)}
-                    <sup>°C</sup>
+                    H: {Math.round(weather.main.temp_max)}
+                    <sup>°</sup>
                 </li>
                 <li>
-                    L: {Math.round(props.weather.main.temp_min)}
-                    <sup>°C</sup>
+                    L: {Math.round(weather.main.temp_min)}
+                    <sup>°</sup>
                 </li>
             </ul>
-        </div>
+        </main>
     );
 };
 

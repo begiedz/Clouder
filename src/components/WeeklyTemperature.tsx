@@ -1,4 +1,3 @@
-
 const WeeklyTemperature = () => {
   return (
     <div>WeeklyTemperature</div>

@@ -1,19 +1,22 @@
+import cloudsImg from '../assets/clouds-cloud-svgrepo-com.svg';
 
-import { fetchWeather } from '../api/fetchWeather';
-fetchWeather;
-
-const Searchbar = (props: any) => {
+const Searchbar = ({ query, setQuery, search }: any) => {
     return (
-        <div>
+        <nav>
+            <div>
+                <img src={cloudsImg} alt="logo" />
+                <h1>Clouder</h1>
+            </div>
+
             <input
                 type="search"
                 className="searchbar"
                 placeholder="Search location..."
-                value={props.query}
-                onChange={(e) => props.setQuery(e.target.value)}
-                onKeyDown={props.search}
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                onKeyDown={search}
             />
-        </div>
+        </nav>
     );
 };
 
