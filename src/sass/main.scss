@@ -1,5 +1,6 @@
-$cardColor: rgba(0, 0, 0, 0.1);
-$cardColor2: rgba(0, 0, 0, 0.2);
+$cardColor: rgba(0, 0, 0, 0.15);
+$cardColor2: rgba(0, 0, 0, 0.3);
+$text-color: rgb(236, 236, 236);
 
 *,
 *::after,
@@ -19,15 +20,8 @@ sup {
 }
 
 body {
-  // background-color: rgb(244, 244, 244);
-  background: rgb(247, 247, 247);
-  background: linear-gradient(
-    0deg,
-    rgba(84, 84, 84, 1) 0%,
-    rgba(133, 133, 133, 1) 34%,
-    rgba(247, 247, 247, 1) 100%
-  );
-  height: 100vh;
+  background: rgb(33, 33, 33);
+  color: $text-color;
 }
 
 #root {
@@ -83,11 +77,16 @@ nav {
     gap: 0.5rem;
     height: inherit;
 
-    img {
+    cursor: pointer;
+
+    .logo {
       height: 50px;
+      width: auto;
       margin-right: 0px;
       margin-left: 0px;
+      fill: $text-color;
     }
+
     h1 {
       font-weight: 900;
     }
@@ -99,16 +98,17 @@ nav {
   gap: 0.5rem;
 
   width: auto;
+
   input.searchbar {
     font-size: 1.2rem;
 
     padding: 0.25rem 1rem;
 
-    color: black;
-
     background-color: $cardColor;
     border: none;
     border-radius: 0.5rem;
+
+    color: inherit;
 
     transition: background-color 200ms ease-in;
     &:focus,
@@ -124,22 +124,25 @@ nav {
     width: 30px;
     height: 30px;
 
-    color: black;
+    color: $text-color;
 
     background-color: $cardColor;
     border: none;
     border-radius: 0.5rem;
     cursor: pointer;
     transition: background-color 200ms ease-in;
+
     &:hover {
       background-color: $cardColor2;
     }
+
     img {
       width: 100%;
       height: auto;
     }
   }
 }
+
 h2 {
   max-width: 100%;
   overflow: hidden;
