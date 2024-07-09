@@ -1,36 +1,36 @@
 
 const MainTemperatureCard = ({ weather }: any) => {
-    const weatherStatus = weather.weather[0].description;
 
     return (
         <main className="main card">
-            <img
-                src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
-                alt={`${weatherStatus} icon`}
-            />
 
-            <h2>{weather.name} <sup>{weather.sys.country}</sup></h2>
+            <img
+                src={`https:${weather.current.condition.icon}`}
+            />
+            <div className="nameWrapper">
+                <h2>{weather.location.name}</h2>
+                <div className="country">{weather.location.country}</div>
+            </div>
+
             {/* Staronizhestebliyevskaya */}
 
             <div className="temperature">
-                {Math.round(weather.main.temp)}
-                <sup>°</sup>
+                {Math.round(weather.current.temp_c)}°
             </div>
 
             <div className="weather-status">
-                {weatherStatus.charAt(0).toUpperCase() + weatherStatus.slice(1)}
+                {weather.current.condition.text}
             </div>
 
             <ul>
                 <li>
-                    H: {Math.round(weather.main.temp_max)}
-                    <sup>°</sup>
+                    H: {Math.round(weather.forecast.forecastday[0].day.maxtemp_c)}°
                 </li>
                 <li>
-                    L: {Math.round(weather.main.temp_min)}
-                    <sup>°</sup>
+                    L: {Math.round(weather.forecast.forecastday[0].day.mintemp_c)}°
                 </li>
             </ul>
+
         </main>
     );
 };

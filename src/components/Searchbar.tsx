@@ -1,5 +1,3 @@
-import cloudsImg from '../assets/clouds-cloud-svgrepo-com.svg';
-
 const Searchbar = ({ query, setQuery, searchByEnter, searchByClick }: any) => {
     return (
         <nav>
