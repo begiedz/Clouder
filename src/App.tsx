@@ -6,10 +6,28 @@ import MainTemperatureCard from './components/MainTemperatureCard';
 import NotificationCard from './components/NotificationCard';
 
 import './sass/main.scss';
+import HourlyTemperature from './components/HourlyTemperature';
 
-interface WeatherData {
-    location: {},
-    current: {}
+export interface WeatherData {
+    location: {
+        name: string;
+        country: string;
+    };
+    current: {
+        temp_c: number;
+        condition: {
+            text: string;
+            icon: string;
+        };
+    };
+    forecast: {
+        forecastday: {
+            day: {
+                maxtemp_c: number;
+                mintemp_c: number;
+            };
+        }[];
+    };
 }
 
 function App() {
@@ -50,7 +68,12 @@ function App() {
     return (
         <>
             <Searchbar query={query} setQuery={setQuery} searchByEnter={searchByEnter} searchByClick={searchByClick} />
-            {error ? <NotificationCard message={error} /> : (weather?.current ? <MainTemperatureCard key={key} weather={weather} /> : null)}
+            {error ? <NotificationCard message={error} /> :
+                weather?.current ? (
+                    <>
+                        <MainTemperatureCard key={key} weather={weather} /> <HourlyTemperature key={key + 1} />
+                    </>
+                ) : null}
         </>
     );
 }
