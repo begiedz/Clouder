@@ -1,5 +1,10 @@
+import { WeatherData } from "../App"
 
-const HourlyTemperature = (/* props: any */) => {
+interface WeatherProps {
+  weather: WeatherData
+}
+
+const HourlyTemperature = ({ weather }: WeatherProps) => {
   return (
     <div className="card main">
       <h2>HourlyTemperature</h2>
