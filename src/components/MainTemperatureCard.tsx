@@ -1,4 +1,4 @@
-import { WeatherData } from '../App'
+import { WeatherData } from '../types/WeatherData'
 
 interface WeatherProps {
   weather: WeatherData

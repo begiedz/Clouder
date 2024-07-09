@@ -8,7 +8,7 @@ export const fetchWeather = async (query: string) => {
     params: {
       q: query,
       key: API_KEY,
-      days: 3,
+      days: 10,
     },
   });
   return data;

@@ -1,34 +1,14 @@
 import { useState } from 'react';
 import { fetchWeather } from './api/fetchWeather';
 
+import { WeatherData } from './types/WeatherData'
 import Searchbar from './components/Searchbar';
 import MainTemperatureCard from './components/MainTemperatureCard';
 import NotificationCard from './components/NotificationCard';
+import HourlyTemperature from './components/HourlyTemperature';
+import WeeklyTemperature from './components/WeeklyTemperature';
 
 import './sass/main.scss';
-import HourlyTemperature from './components/HourlyTemperature';
-
-export interface WeatherData {
-  location: {
-    name: string;
-    country: string;
-  };
-  current: {
-    temp_c: number;
-    condition: {
-      text: string;
-      icon: string;
-    };
-  };
-  forecast: {
-    forecastday: {
-      day: {
-        maxtemp_c: number;
-        mintemp_c: number;
-      };
-    }[];
-  };
-}
 
 function App() {
   const [query, setQuery] = useState<string>('');
@@ -73,6 +53,7 @@ function App() {
           <>
             <MainTemperatureCard key={key} weather={weather} />
             <HourlyTemperature key={key + 1} weather={weather} />
+            <WeeklyTemperature key={key + 2} weather={weather} />
           </>
         ) : null}
     </>
