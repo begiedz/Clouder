@@ -15,7 +15,7 @@ const HourlyTemperature = ({ weather }: WeatherProps) => {
             <li key={key}>
               <div>{key}</div>
               <img src={`https:${hour.condition.icon}`} />
-              <div>{Math.round(hour.temp_c)}</div>
+              <div>{Math.round(hour.temp_c)}<sup>°</sup></div>
             </li>
           )
         })}
