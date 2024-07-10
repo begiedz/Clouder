@@ -28,6 +28,7 @@ export interface WeatherData {
         condition: {
           icon: string;
         };
+        time_epoch: number;
       }[];
     }[];
   };

@@ -5,8 +5,8 @@ import { WeatherData } from './types/WeatherData'
 import Searchbar from './components/Searchbar';
 import MainTemperatureCard from './components/MainTemperatureCard';
 import NotificationCard from './components/NotificationCard';
-import HourlyTemperature from './components/HourlyTemperature';
-import WeeklyTemperature from './components/WeeklyTemperature';
+import HourlyTemperature from './components/HourlyForecast';
+import WeeklyTemperature from './components/DailyForecast';
 
 import './sass/main.scss';
 
