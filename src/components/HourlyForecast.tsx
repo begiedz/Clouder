@@ -16,14 +16,11 @@ const HourlyTemperature = ({ weather }: WeatherProps) => {
   const reducedForecast = todaysForecast.slice(currentHour)
   const nextDayReducedForecast = nextDayForecast.slice(0, currentHour)
   const next24hForecast = reducedForecast.concat(nextDayReducedForecast)
-  console.log(next24hForecast);
 
   function getHour(unixDate: number) {
     const date = new Date(unixDate * 1000);
     return date.getHours();
   }
-
-  console.log(getHour(1720612800));
 
   return (
     <div className="card hourly">
