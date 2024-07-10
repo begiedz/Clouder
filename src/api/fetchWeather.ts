@@ -9,6 +9,7 @@ export const fetchWeather = async (query: string) => {
       q: query,
       key: API_KEY,
       days: 10,
+      alert: 'yes',
     },
   });
   return data;

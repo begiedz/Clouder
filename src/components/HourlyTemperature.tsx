@@ -8,7 +8,7 @@ const HourlyTemperature = ({ weather }: WeatherProps) => {
   return (
     <div className="card hourly">
       <h6>Today</h6>
-      <hr />
+      <div className="titleSeparator" />
       <ul>
         {weather.forecast.forecastday[0].hour.map((hour, key) => {
           return (

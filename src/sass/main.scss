@@ -1,6 +1,9 @@
 $cardColor: rgba(0, 0, 0, 0.15);
 $cardColor2: rgba(0, 0, 0, 0.3);
 $text-color: rgb(236, 236, 236);
+$background-color: rgb(40, 106, 168);
+$background-color: #286aa8;
+// $background-sky: rgb(95, 160, 224);
 
 *,
 *::after,
@@ -20,8 +23,14 @@ sup {
 }
 
 body {
-  background: rgb(33, 33, 33);
+  background: $background-color;
   color: $text-color;
+
+  padding: 0em 3em 1em;
+
+  @media screen and (max-width: 600px) {
+    padding: 0em 1em 1em;
+  }
 }
 
 #root {
@@ -31,13 +40,26 @@ body {
 
   gap: 1em;
 }
+// #root::before {
+//   position: absolute;
+
+//   display: block;
+//   content: '';
+//   width: 100%;
+//   height: 100%;
+//   margin: 0 100px 100px;
+//   box-shadow: inset rgb(40, 106, 168) 0px 500px 200px -200px;
+// }
 
 .card {
-  width: calc(100% - 3rem);
+  width: 100%;
 
   padding: 1rem;
   border-radius: 0.5rem;
   background-color: $cardColor;
+
+  backdrop-filter: saturate(1.2);
+  -webkit-backdrop-filter: saturate(1.2);
 }
 
 .main {
@@ -51,8 +73,9 @@ body {
     flex-direction: column;
     align-items: center;
   }
+
   h2 {
-    font-size: 2rem;
+    font-size: 2em;
     max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -60,12 +83,12 @@ body {
   }
 
   .temperature {
-    font-size: 3.5rem;
+    font-size: 3.5em;
   }
 
   img {
-    height: 150px;
-    margin: -2rem;
+    height: 120px;
+    margin: -1em 0 0;
     width: auto;
   }
 
@@ -84,6 +107,9 @@ body {
 
 //Navbar
 nav {
+  position: sticky;
+  top: 0;
+
   display: grid;
   place-items: center;
   grid-template-columns: 1fr 2fr 1fr;
@@ -94,6 +120,8 @@ nav {
   width: 100%;
   height: auto;
 
+  background-color: $background-color;
+  z-index: 1;
   @media screen and (max-width: 480px) {
     display: flex;
     align-items: center;
@@ -109,15 +137,24 @@ nav {
     cursor: pointer;
 
     .logo {
-      height: 50px;
+      height: 45px;
       width: auto;
       margin-right: 0px;
       margin-left: 0px;
       fill: $text-color;
+
+      @media screen and (max-width: 480px) {
+        display: none;
+      }
     }
 
     h1 {
-      font-weight: 900;
+      font-weight: 700;
+      font-size: 1.7em;
+
+      @media screen and (max-width: 480px) {
+        display: none;
+      }
     }
   }
 }
@@ -140,9 +177,15 @@ nav {
     color: inherit;
 
     transition: background-color 200ms ease-in;
+
+    backdrop-filter: saturate(1.2);
+    -webkit-backdrop-filter: saturate(1.2);
     &:focus,
     &:hover {
       background-color: $cardColor2;
+    }
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.642);
     }
   }
   .searchbar:focus {
@@ -161,6 +204,9 @@ nav {
     cursor: pointer;
     transition: background-color 200ms ease-in;
 
+    backdrop-filter: saturate(1.2);
+    -webkit-backdrop-filter: saturate(1.2);
+
     &:hover {
       background-color: $cardColor2;
     }
@@ -176,8 +222,16 @@ nav {
   display: flex;
   flex-direction: column;
 
-  hr {
+  hr.titleSeparator {
     margin: 1rem 0;
+    opacity: 40%;
+  }
+  div.titleSeparator {
+    border-bottom: 1px solid white;
+
+    width: 100%;
+    margin: 1rem 0;
+
     opacity: 40%;
   }
   ul {
@@ -215,8 +269,16 @@ nav {
   display: flex;
   flex-direction: column;
 
-  .titleSeparator {
+  hr.titleSeparator {
     margin: 1rem 0;
+    opacity: 40%;
+  }
+  div.titleSeparator {
+    border-bottom: 1px solid white;
+
+    width: 100%;
+    margin: 1rem 0;
+
     opacity: 40%;
   }
   ul {
@@ -243,7 +305,14 @@ nav {
         place-self: center;
       }
     }
-    .listSeparator {
+    hr.listSeparator {
+      width: 100%;
+      margin: 0;
+
+      opacity: 20%;
+    }
+    div.listSeparator {
+      border-bottom: 1px solid white;
       width: 100%;
       margin: 0;
 
@@ -256,6 +325,7 @@ nav {
   animation-name: showCard;
   animation-duration: 500ms;
 }
+
 @keyframes showCard {
   from {
     transform: translateY(50px);

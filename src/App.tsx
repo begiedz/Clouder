@@ -32,9 +32,7 @@ function App() {
       } else {
         console.log(error);
       }
-
     }
-
   }
 
   const searchByEnter = (e: any) => {

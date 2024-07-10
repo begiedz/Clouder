@@ -1,3 +1,4 @@
+import React from "react";
 import { WeatherData } from "../types/WeatherData"
 
 interface WeatherProps {
@@ -5,13 +6,6 @@ interface WeatherProps {
 }
 
 const WeeklyTemperature = ({ weather }: WeatherProps) => {
-
-  const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-
-  // const date = new Date()
-  // const today = date.getDay()
-
-  // console.log(weekdays[today]);
 
   function getDayName(dateStr: string, locale: string) {
     const date = new Date(dateStr);
@@ -21,12 +15,12 @@ const WeeklyTemperature = ({ weather }: WeatherProps) => {
   return (
     <div className="card weekly">
       <h6>Week Forecast</h6>
-      <hr className="titleSeparator" />
+      <div className="titleSeparator" />
       <ul>
         {weather.forecast.forecastday.map((day, key) => {
           return (
-            <>
-              <li key={key}>
+            <React.Fragment key={key}>
+              <li>
                 <div>{key == 0 ? 'Today' : getDayName(day.date, "en-EN")}</div>
                 <img src={`https:${day.day.condition.icon}`} />
                 <div>
@@ -36,8 +30,10 @@ const WeeklyTemperature = ({ weather }: WeatherProps) => {
                   L: {Math.round(day.day.mintemp_c)}<sup>°</sup>
                 </div>
               </li>
-              <hr className="listSeparator" />
-            </>
+              {key < weather.forecast.forecastday.length - 1 && (
+                <div className="listSeparator" />
+              )}
+            </React.Fragment>
           )
         })}
       </ul>
