@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 interface SearchbarProps {
   fetchForecast: (query: string) => void;
@@ -7,32 +7,17 @@ interface SearchbarProps {
 }
 const Searchbar = ({ fetchForecast, query, setQuery }: SearchbarProps) => {
 
-  const [lat, setLat] = useState<number>(0)
-  const [lon, setLon] = useState<number>(0)
-
   const getLocation = () => {
-    console.log("getLocation called");
     navigator.geolocation.getCurrentPosition((position) => {
       const { latitude, longitude } = position.coords;
-      setLat(latitude)
-      setLon(longitude)
-      console.log("Position obtained:", { latitude, longitude });
-      console.log("Position setted:", { lat, lon });
+      fetchForecast(`${latitude},${longitude}`)
     })
   }
+
   // Ask for location at app start
   useEffect(() => {
     getLocation()
   }, [])
-
-  // if lat and lon are changed fetch the forecast
-  useEffect(() => {
-    if (lat != 0 && lon != 0) {
-      console.log("Fetching forecast with:", { lat, lon });
-      fetchForecast(`${lat},${lon}`)
-    }
-  }, [lat, lon])
-
 
   return (
     <nav>
