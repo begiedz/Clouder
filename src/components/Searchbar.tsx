@@ -1,4 +1,39 @@
-const Searchbar = ({ query, setQuery, searchByEnter, searchByClick }: any) => {
+import { useEffect, useState } from "react";
+
+interface SearchbarProps {
+  fetchForecast: (query: string) => void;
+  query: string;
+  setQuery: React.Dispatch<React.SetStateAction<string>>;
+}
+const Searchbar = ({ fetchForecast, query, setQuery }: SearchbarProps) => {
+
+  const [lat, setLat] = useState<number>(0)
+  const [lon, setLon] = useState<number>(0)
+
+  const getLocation = () => {
+    console.log("getLocation called");
+    navigator.geolocation.getCurrentPosition((position) => {
+      const { latitude, longitude } = position.coords;
+      setLat(latitude)
+      setLon(longitude)
+      console.log("Position obtained:", { latitude, longitude });
+      console.log("Position setted:", { lat, lon });
+    })
+  }
+  // Ask for location at app start
+  useEffect(() => {
+    getLocation()
+  }, [])
+
+  // if lat and lon are changed fetch the forecast
+  useEffect(() => {
+    if (lat != 0 && lon != 0) {
+      console.log("Fetching forecast with:", { lat, lon });
+      fetchForecast(`${lat},${lon}`)
+    }
+  }, [lat, lon])
+
+
   return (
     <nav>
       <div onClick={() => location.reload()}>
@@ -20,19 +55,28 @@ const Searchbar = ({ query, setQuery, searchByEnter, searchByClick }: any) => {
       </div>
 
       <div className='searchWrapper'>
+
         <input
           type="search"
           className="searchbar"
           placeholder="Search"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          onKeyDown={searchByEnter}
+          onKeyDown={(e) => { if (e.key == 'Enter') fetchForecast(query) }}
         />
-        <button onClick={searchByClick}>
+
+        <button onClick={() => fetchForecast(query)}>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
           </svg>
         </button>
+
+        <button onClick={() => getLocation()}>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-crosshair" viewBox="0 0 16 16">
+            <path d="M8.5.5a.5.5 0 0 0-1 0v.518A7 7 0 0 0 1.018 7.5H.5a.5.5 0 0 0 0 1h.518A7 7 0 0 0 7.5 14.982v.518a.5.5 0 0 0 1 0v-.518A7 7 0 0 0 14.982 8.5h.518a.5.5 0 0 0 0-1h-.518A7 7 0 0 0 8.5 1.018zm-6.48 7A6 6 0 0 1 7.5 2.02v.48a.5.5 0 0 0 1 0v-.48a6 6 0 0 1 5.48 5.48h-.48a.5.5 0 0 0 0 1h.48a6 6 0 0 1-5.48 5.48v-.48a.5.5 0 0 0-1 0v.48A6 6 0 0 1 2.02 8.5h.48a.5.5 0 0 0 0-1zM8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4" />
+          </svg>
+        </button>
+
       </div>
     </nav>
   );

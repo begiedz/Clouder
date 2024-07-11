@@ -200,6 +200,9 @@ nav {
   }
 
   button {
+    display: grid;
+    place-items: center;
+
     width: 2rem;
     height: 2rem;
 

@@ -32,4 +32,7 @@ export interface WeatherData {
       }[];
     }[];
   };
+  alerts: {
+    alert: {}[];
+  };
 }

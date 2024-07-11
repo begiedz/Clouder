@@ -16,11 +16,11 @@ function App() {
   const [error, setError] = useState<string | null>(null)
   const [key, setKey] = useState<number>(0)
 
-  const search = async () => {
+  const fetchForecast = async (query: string) => {
     try {
       const data = await fetchWeather(query)
-      setError(null)
       setQuery('');
+      setError(null)
       setWeather(data);
       setKey(prevKey => prevKey + 1)
 
@@ -34,26 +34,21 @@ function App() {
       }
     }
   }
-
-  const searchByEnter = (e: any) => {
-    if (e.key == 'Enter') {
-      search()
-    }
-  };
-  const searchByClick = () => {
-    search()
-  }
   return (
     <>
-      <Searchbar query={query} setQuery={setQuery} searchByEnter={searchByEnter} searchByClick={searchByClick} />
+      <Searchbar
+        query={query}
+        setQuery={setQuery}
+        fetchForecast={fetchForecast} />
+
       {error ? <NotificationCard message={error} /> :
-        weather?.current ? (
-          <>
-            <MainTemperatureCard key={key} weather={weather} />
-            <HourlyTemperature key={key + 1} weather={weather} />
-            <WeeklyTemperature key={key + 2} weather={weather} />
-          </>
-        ) : null}
+        weather?.current &&
+        <>
+          <MainTemperatureCard key={key} weather={weather} />
+          <HourlyTemperature key={key + 1} weather={weather} />
+          <WeeklyTemperature key={key + 2} weather={weather} />
+        </>
+      }
     </>
   );
 }
