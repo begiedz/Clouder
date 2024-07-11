@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+// import { useEffect } from "react";
 
 interface SearchbarProps {
   fetchForecast: (query: string) => void;
@@ -15,9 +15,9 @@ const Searchbar = ({ fetchForecast, query, setQuery }: SearchbarProps) => {
   }
 
   // Ask for location at app start
-  useEffect(() => {
-    getLocation()
-  }, [])
+  // useEffect(() => {
+  //   getLocation()
+  // }, [])
 
   return (
     <nav>

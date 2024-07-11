@@ -3,8 +3,8 @@ import { fetchWeather } from './api/fetchWeather';
 
 import { WeatherData } from './types/WeatherData'
 import Searchbar from './components/Searchbar';
-import MainTemperatureCard from './components/MainTemperatureCard';
-import NotificationCard from './components/NotificationCard';
+import MainTemperatureCard from './components/CurrentWeather';
+import NotificationCard from './components/Notification';
 import HourlyTemperature from './components/HourlyForecast';
 import WeeklyTemperature from './components/DailyForecast';
 

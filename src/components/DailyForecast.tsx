@@ -21,7 +21,7 @@ const WeeklyTemperature = ({ weather }: WeatherProps) => {
           return (
             <React.Fragment key={key}>
               <li>
-                <div>{key == 0 ? 'Today' : getDayName(day.date, "en-EN")}</div>
+                <div className="day">{key == 0 ? 'Today' : getDayName(day.date, "en-EN")}</div>
                 <div className="rain-wrapper">
                   <img src={`https:${day.day.condition.icon}`} />
                   <div className="rain-chance">

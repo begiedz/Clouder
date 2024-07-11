@@ -12,8 +12,10 @@ const MainTemperatureCard = ({ weather }: WeatherProps) => {
 
       <div className="nameWrapper">
         <h2>{weather.location.name}</h2>
-        {/* Staronizhestebliyevskaya */}
-        <div className="country">{weather.location.country}</div>
+
+        {weather.location.country !== weather.location.name && (
+          <div className="country">{weather.location.country}</div>
+        )}
       </div>
 
       <div className="temperature">
