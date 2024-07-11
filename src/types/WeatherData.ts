@@ -21,6 +21,10 @@ export interface WeatherData {
           text: string;
           icon: string;
         };
+        daily_chance_of_rain: number;
+        daily_chance_of_snow: number;
+        daily_will_it_rain: number;
+        daily_will_it_snow: number;
       };
       hour: {
         time: string;
@@ -29,6 +33,10 @@ export interface WeatherData {
           icon: string;
         };
         time_epoch: number;
+        chance_of_rain: number;
+        chance_of_snow: number;
+        will_it_rain: number;
+        will_it_snow: number;
       }[];
     }[];
   };

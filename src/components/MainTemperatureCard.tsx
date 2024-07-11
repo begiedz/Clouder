@@ -6,7 +6,7 @@ interface WeatherProps {
 
 const MainTemperatureCard = ({ weather }: WeatherProps) => {
   return (
-    <main className="main card">
+    <main className="main">
 
       <img src={`https:${weather.current.condition.icon}`} />
 

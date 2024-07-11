@@ -31,7 +31,17 @@ const HourlyTemperature = ({ weather }: WeatherProps) => {
           return (
             <li key={key}>
               <div>{key == 0 ? "Now" : getHour(hour.time_epoch)}</div>
-              <img src={`https:${hour.condition.icon}`} />
+              <div className="rain-wrapper">
+                <img src={`https:${hour.condition.icon}`} />
+                {hour.will_it_rain === 1 &&
+                  <div className="rain-chance">
+                    {hour.chance_of_rain}%
+                  </div>}
+                {hour.will_it_snow === 1 &&
+                  <div className="rain-chance">
+                    {hour.chance_of_snow}%
+                  </div>}
+              </div>
               <div>{Math.round(hour.temp_c)}<sup>°</sup></div>
             </li>
           )
