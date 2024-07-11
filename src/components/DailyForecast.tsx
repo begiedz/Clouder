@@ -13,8 +13,8 @@ const WeeklyTemperature = ({ weather }: WeatherProps) => {
   }
 
   return (
-    <div className="card weekly">
-      <h6>Daily Forecast</h6>
+    <div className="card daily">
+      <h3>Daily Forecast</h3>
       <div className="titleSeparator" />
       <ul>
         {weather.forecast.forecastday.map((day, key) => {

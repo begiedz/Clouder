@@ -61,6 +61,10 @@ body {
 
   backdrop-filter: saturate(1.2);
   -webkit-backdrop-filter: saturate(1.2);
+
+  h3 {
+    font-size: 0.8rem;
+  }
 }
 
 .main {
@@ -108,7 +112,7 @@ body {
 
 //Navbar
 nav {
-  position: sticky;
+  // position: sticky;
   top: 0;
 
   display: grid;
@@ -227,21 +231,6 @@ nav {
 }
 
 .hourly {
-  display: flex;
-  flex-direction: column;
-
-  hr.titleSeparator {
-    margin: 1rem 0;
-    opacity: 40%;
-  }
-  div.titleSeparator {
-    border-bottom: 1px solid white;
-
-    width: 100%;
-    margin: 1rem 0;
-
-    opacity: 40%;
-  }
   ul {
     gap: 2rem;
     display: flex;
@@ -255,11 +244,6 @@ nav {
       display: flex;
       flex-direction: column;
       align-items: center;
-
-      :first-child {
-        font-size: 1;
-      }
-
       img {
         width: 40px;
         margin: 10px 0;
@@ -273,22 +257,22 @@ nav {
   animation-duration: 500ms;
 }
 
-.weekly {
-  display: flex;
-  flex-direction: column;
+.titleSeparator {
+  border-bottom: 1px solid white;
 
-  hr.titleSeparator {
-    margin: 1rem 0;
-    opacity: 40%;
-  }
-  div.titleSeparator {
-    border-bottom: 1px solid white;
+  width: 100%;
+  margin: 1rem 0;
 
-    width: 100%;
-    margin: 1rem 0;
+  opacity: 40%;
+}
+.listSeparator {
+  border-bottom: 1px solid white;
+  width: 100%;
+  margin: 0;
 
-    opacity: 40%;
-  }
+  opacity: 20%;
+}
+.daily {
   ul {
     display: flex;
     flex-direction: column;
@@ -313,19 +297,6 @@ nav {
         place-self: center;
       }
     }
-    hr.listSeparator {
-      width: 100%;
-      margin: 0;
-
-      opacity: 20%;
-    }
-    div.listSeparator {
-      border-bottom: 1px solid white;
-      width: 100%;
-      margin: 0;
-
-      opacity: 20%;
-    }
   }
   @media screen and (min-width: 600px) {
     max-width: 600px;
@@ -333,6 +304,13 @@ nav {
   animation-name: showCard;
   animation-duration: 500ms;
 }
+
+// .sticky {
+//   position: sticky;
+//   top: 0;
+
+//   background-color: rgb(19, 91, 155);
+// }
 
 @keyframes showCard {
   from {
